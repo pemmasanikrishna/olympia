@@ -82,13 +82,13 @@
           {{ _('Reply to review') }}</a>
       </li>
     {% endif %}
-    {% if review.user_id == request.user.id and((is_reply or has_reply) and (perms.is_author or perms.is_admin))}
+    {% if review.user_id == request.user.id }
       <li>
         <a class="review-edit" href="#">
           {{ _('Edit reply') }}</a>
       </li>
     {% endif %}
-    {% if check_review_delete(review) %}
+    {% if check_review_delete(review) and  %}
       <li>
         <a class="delete-review" href="{{ url('addons.reviews.delete', addon.slug, review.id) }}">
           {{ _('Delete reply') }}</a>
